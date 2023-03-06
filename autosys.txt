@@ -1,0 +1,28 @@
+Autosys:
+========
+
+1.after loggedin  --> choose quick view option
+2. server name --> we should call aliasname for prod server it could be sit,uat
+3.Name-->job name
+a. uob_pinlx_report_eod_ps--->command job.
+   above job pattern name will be -->uob_pinlx_report_eod_ps
+   the job will trigger the shellscript 
+b. uob_pinlx_box_eod----> box.
+    uob_pinlx_report_eod_ps--start time 9:15 am--condition--login_ps and rejection_ps both should should be in successful state. 
+    uob_pinlx_report_login_ps-- start time 9:05 am--condition--nil
+    uob_pinlx_report_rejection_ps--start time 09:07 am--condition--login_ps job should complete before it start
+
+    - we have to schedule the box start time at 9 am
+
+
+c. uob_pinlx_check_eod----> file watcher.-->adhoc is the alias name of 
+
+ 
+   
+  
+
+
+uob_pinlx_report_eod_ps
+uob_pinlx_report_login_ps-->still running
+
+uob_pinlx_report_rejection_ps-- triggered--> cond not satis --> failed
