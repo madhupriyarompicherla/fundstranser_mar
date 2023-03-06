@@ -1,0 +1,81 @@
+
+cd /home/madhuu
+
+mkdir madhu5
+
+chmod 777 madhu4
+
+cd /home/madhuu/madhu5
+
+touch shfile.sh
+
+touch txtfile.txt
+
+touch pdffile.pdf
+
+chmod 777 shfile.sh
+
+chmod 777 pdffile.pdf
+
+chmod 777 txtfile.txt
+
+cd /home/madhuu
+
+=============
+logger path
+
+>>==you are appending the logs , adds the logs in the loggerfile
+
+>== it will override the logs
+
+never use >
+
+madhuu@mycomputer:~/scripts$ ./shfile.sh
+./shfile.sh: line 1: cd: /home/madhuu45: No such file or directory
+madhuu@mycomputer:~/scripts$ sudo bash
+[sudo] password for madhuu: 
+root@mycomputer:/home/madhuu/scripts# exit
+exit
+madhuu@mycomputer:~/scripts$ pwd
+/home/madhuu/scripts
+madhuu@mycomputer:~/scripts$ ls -lrt
+total 4
+-rwxrwxrwx 1 madhuu madhuu   0 Dec  1 15:56 one.txt
+-rwxrwxrwx 1 madhuu madhuu   0 Dec  1 15:57 pdffile.pdf
+-rw-rw-r-- 1 madhuu madhuu   0 Dec  1 18:50 shfile
+-rwxrwxrwx 1 madhuu madhuu 205 Dec  2 13:56 shfile.sh
+madhuu@mycomputer:~/scripts$ ./shfile.sh >> /home/madhuu/scripts/one.txt
+
+
+
+uob dir--home
+
+inside 3, jar ,script, logger
+
+search java. jar file from google , store in jar loc
+
+shell script
+
+how to start java file 
+
+
+mv to uob jar ...create sh....start the service..execute the script it should star the service and log will be log dire
+
+mv /home/madhuu/Madhu/sample.jar  /home/madhuu/uob2
+ /home/madhuu/uob2
+
+
+cd /home/madhuu/uob2
+
+
+java -jar uob.jar
+
+
+
+/home/madhuu/uob2/one.log
+
+
+
+
+
+
