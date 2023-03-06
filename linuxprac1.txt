@@ -1,0 +1,37 @@
+
+mv /home/madhuu/Madhu/sample.jar  /home/madhuu/uob2
+
+
+
+sudo apt install openjdk-11-jdk-headless
+
+Magma:
+
+java -XX:+PrintGCDateStamps  -XX:+PrintGCTimeStamps  -Xloggc:/Data/deployment/logs/housing_gc.log -Xms1024m  -Xmx6144m  
+
+-Dserver.tomcat.remote_ip_header=x-forwarded-for -Dserver.tomcat.protocol_header=x-forwarded-proto -Dlogging.level.com=TRACE -Duser.timezone=Asia/Kolkata '-Dorg.kie.server.xstream.enabled.packages=com.hotfoot.**,java.text.**' -Djava.io.tmpdir=/Data/deployment/working_temp/temp -Dspring.config.location=file:/Data/deployment/portal/application.yaml -Daeskeyfilepath=/Data/deployment/aeskeyfolder/ -jar /Data/deployment/portal/customerportal-magma-0.0.1.jar '--otp.stub=true' '--server.port=9003' '--product.name=MFL' '--user.tasks=HOPS,BCM3,PSD' '--excel.startvalue=0' '--excel.length=10000' '--sanction.report.target.path=/Data/deployment/files/documents/report/' '--workflow.url=http://172.28.27.191:9051/workflow'  '--templateresolver.commonPath=/Data/deployment/web/content/template/common/' '--templateresolver.currentAppPath=/Data/deployment/web/content/template/housing/' '--sso.url=https://hfclos.magma.co.in/security/login' '--sso.logouturl=https://hfclos.magma.co.in/security/logout' '--sso.resturl=http://localhost/security/rest/' '--token.cachepath=/Data/deployment/files/authcache' '--homepage.url=https://hfclos.magma.co.in/customer-portal-mfl-housing/'  '--templateresolver.commonDeployedPath=https://hfclos.magma.co.in/common/' '--templateresolver.currentAppDeployedPath=https://hfclos.magma.co.in/housing/'  '--master.url=http://internal-platform-services-131074357.ap-south-1.elb.amazonaws.com/master-data/rest'  '--cif.url=http://localhost:9004/cif-api' '--send.mail.report.path=c:\temp\' '--proofdocuments.upload_file_path=/Data/deployment/files/documents' '--temp.dir=/Data/deployment/files/temp' '--bureau.url=http://internal-platform-services-131074357.ap-south-1.elb.amazonaws.com/multi-bureau/rest' '--liquibase.enabled=false' '--karzaurl=http://internal-platform-services-131074357.ap-south-1.elb.amazonaws.com/magma-integration/' '--karza.channelId=LOS' '--karza.serviceId=789' '--karza.requestId=233' '--karza.consent=Y' 
+
+
+'--ruleengine.url=http://internal-Rule-Engine-602209871.ap-south-1.elb.amazonaws.com/kie-server/services/rest/server' 
+'--cca.existingcustomerurl=http://internal-Rule-Engine-602209871.ap-south-1.elb.amazonaws.com/magma-integration/rest/existingcustomer' '--karza.uploadPath=/Data/deployment/files/documents' '--smsservice.type=japi' '--otpurl=https://japi.instaalerts.zone/httpapi/QueryStringReceiver?ver=1.0&key=byjeFlW1Jok8Ld8rkKmkaQ==&encrpt=0&dest=<<MOBILE>>&send=MAGHFC&text=<<MESSAGE>>' '--otp.otptemplate="Dear Customer, <<OTP>> is the OTP for your loan application with Magma Fincorp Pvt. Ltd. for generating credit bureau report. The OTP is valid for 6 hours."' '--pan.username=devone' '--pan.devkey=abc123efg' '--spring.jpa.show-sql=false' '--magma.url=http://internal-platform-services-131074357.ap-south-1.elb.amazonaws.com/magma-integration/' '--ndslpanurl=http://internal-platform-services-131074357.ap-south-1.elb.amazonaws.com/magma-integration/' '--credit.pd.json.schema.validation=false' '--rabbitmq.enabled=true' 
+
+
+
+ 
+'--workflow.longrunningurl=http://172.28.27.191:9051/workflow/' 
+'--communication.longrunningurl=http://172.28.27.191:9053/communication/'
+'--multibaeuro.longrunningurl=http://172.28.27.191:9054/multibaeuro/'
+'--ui_templates.path=/Data/deployment/web/content/static/housing/ui-templates/' 
+
+
+
+ '--spring.rabbitmq.host=172.28.27.191' '--spring.rabbitmq.password=rapid' '--spring.rabbitmq.username=rapid' '--returnUrl=http://hfclos.magma.co.in/perfiosrest.html'  '--workflow.pricingapprovalhierarchy=mfl_sm,mfl_asm,mfl_rsm,mfl_zsm,mfl_bh,mfl_ceo' '--lms.integration.url=http://localhost:9009/lms-integration-service/rest' '--insurance.master.path=/Data/deployment/files/insurencecalculator/HFC_MSS_Calc_Sep19_v6_KCess.xlsx' '--propertyinsurance.master.path=/Data/deployment/files/insurencecalculator/PropertyInsurance.xlsx' '--insurance.target.path=/Data/deployment/files/insurencecalculator/generated' '--aws.upload=true' '--aws.secretKey=VCBZa1ZCi6k6Or2ANg9c5DSv5GjLsNnHVViBHpHa' '--aws.accessKey=AKIATDBLUUXSLRUAPTVV' '--aws.bucketName=hfc-dms' '--workflow.all.tasks=FOS,COE,FOS-R,BCM,ACM,RCM,ZCM,NCM,CCO,BCM2,ACM2,RCM2,ZCM2,NCM2,CCO2,SM,ASM,RSM,ZSM,BH,CEO,BCM3,PNI,PSD,BOPS,HOPS' '--target.inprinciple.path=/Data/deployment/files/Inprinciple_Sanction_letter.pdf' '--target.sanction.path=/Data/deployment/files/SanctionLetter.pdf' '--magma.soafilepath=/Data/deployment/files/documents/' '--cam.source.path=/Data/deployment/files/report/cam.xlsx' '--cam.target.path=/Data/deployment/files/report/uploads' '--perfios.server=app.perfios.com' '--perfiosurl=https://app.perfios.com/KuberaVault/insights' '--sherlock.isSherlockInitiated=true' '--karza.username=devone' '--karza.key=abc123efg'   '--magma.sherlock.url=http://internal-platform-services-131074357.ap-south-1.elb.amazonaws.com/magma-integration/' '--target.leadtracker.path=/Data/deployment/files/csv/' '--workflow.skiplevels=mfl_bcm,mfl_acm,mfl_rcm,mfl_zcm,mfl_ncm,mfl_cco,mfl_sm,mfl_asm,mfl_rsm,mfl_zsm,mfl_bh,mfl_ceo' '--spring.jpa.hibernate.ddl-auto=update' '--spring.jpa.generate-ddl=true' '--ruleengineclienttimeout=500000' '--token.encryption.secret=EGw7[)ev"KVqG5WE' '--csrf.protectedPaths=/dummy' '--bureau.aadhaarexclude=false' '--security.attempts_to_lock=7' '--node.reportserviceurl:http://localhost:8000' '--bopskip.flow.imp.data=2020-10-11 12:46:00' '--workflow.exclude.bops.branch=0094,0222,0241,0264,0028,0539,0053,0054,0126,0113,0415,0033,0043,0026,0273,0136,0129,0118,0244,0179,0039,0139,0034,0044,0062,0123,0104,0210,0236,0224,0542' '--report.path=/Data/deployment/files/temp/' '--upload.whitelist.ext=.jpeg,.gif,.png,.pdf,.JPEG,.jpg,.doc,.docx,.xls,.xlsx,.csv,.PNG' '--product=LAP' '--workflow.exclude.for.all.branch=true' '--integration.url=null' 
+
+'--rapid.datasource.master.jdbcUrl=jdbc:mysql://hfc-prod-db.magma.co.local/magma-housing?useSSL=false' '--rapid.datasource.master.username=rapid-magma' '--rapid.datasource.master.password=rapid@123' '--rapid.datasource.slave.jdbcUrl=jdbc:mysql://hfc-prod-ro-db.magma.co.local/magma-housing?useSSL=false' '--rapid.datasource.slave.username=rapid-magma' '--rapid.datasource.slave.password=rapid@123' '--rapid.datasource.master.hikari.maximum-pool-size=1200' '--rapid.datasource.slave.hikari.maximum-pool-size=1200' '--logging.level.master=error' '--logging.level.replica=error' '--logging.level.com.hotfoot.rapid.datasource.MasterReplicaDatasourceAspect=INFO' '--rapid.datasource.master.leakDetectionThreshold=300000' '--rapid.datasource.slave.leakDetectionThreshold=300000' 
+
+
+
+
+
+
+'--rapid.datasource.master.hikari.minimum-pool-size=100' '--rapid.datasource.slave.hikari.minimum-pool-size=100' '--bureau.aadhaar.vault.enabled=false' '--magma.floating.rate=20.80' '--rapid.datasource.master.hikari.max-lifetime=900000' '--rapid.datasource.master.hikari.leakDetectionThreshold=90000' '--rapid.datasource.master.hikari.idle-timeout=900000' '--rapid.datasource.slave.hikari.max-lifetime=900000' '--rapid.datasource.slave.hikari.leakDetectionThreshold=60000' '--rapid.datasource.slave.hikari.idle-timeout=900000' '--is.karza.pan =true'  >> /app/deployment/portal/portal.log 2>&1 &
