@@ -1,0 +1,105 @@
+--ruleengine.url=http://internal-Rule-Engine-602209871.ap-south-1.elb.amazonaws.com/kie-server/services/rest/server
+
+
+-Xms1024m  -Xmx8192m
+
+inside portal.sh
+=================
+
+-Xms1024m==1GB == min limit
+
+-Xmx8192m=8gb max limit
+
+==File running size, service running.
+
+based on service size may be different
+
+segregate ram mem to all the services
+RAM of server normaly ==8GB==50k per month==cost effective
+
+16GB==extra we need to install
+
+every third party services we have to pay
+
+server we have 8GB we have min and max limit we can decide how much we allocate and 
+
+peaktime=it will reach 8GB normally not
+
+
+
+
+
+
+
+'--ui_templates.path=/Data/deployment/web/content/static/housing/ui-templates/'
+====================================================================================
+
+=they using webcontent server
+==thgis template is in the same server
+==deployed in both servers
+===ui templates should be in 2 servers
+
+
+workflow.longrunningurl=http://172.28.27.191:9051/workflow/'
+=================--==========================================
+==will be running in different app server
+==172.28.27.191:9051==different machine
+==we can access the portal srvice
+==/workflow/
+===port number will be unique for each services.
+
+--communication.longrunningurl=http://172.28.27.191:9052/communication/'
+
+workflow.longrunningurl=http://172.28.27.191:9051/workflow/'
+=================--==========================================
+ui_template.longrunningurl=http://172.28.27.189/data/dep/content/'
+
+
+
+
+
+
+
+
+
+
+--ruleengine.url=http://internal-Rule-Engine-602209871.ap-south-1.elb.amazonaws.com/kie-server/services/rest/server
+=======================================================================================================================
+
+==loadbalancer url
+==instead of ip we are using ruleengine loadbalancer url.
+
+
+
+
+
+
+
+'--rapid.datasource..jdbcUrl=jdbc:mysql://hfc-prod-db.magma.comaster.local/magma-housing?useSSL=false' '--rapid.datasource.master.username=rapid-magma' '--rapid.datasource.master.password=rapid@123'
+==============================
+master:portal
+slave :communaction remaining things.
+we need to connect db through sh file like the above cmmnds
+Property jdbcl url only dnt rapid.
+dbcUrl=jdbc:mysql://hfc-prod-ro-db.magma.co.local/magma-housing?useSSL=false===connecting DB.
+SSL=False==http or https url=every url have ssl==to connect to bank server we need ssl certifacte.
+==============================
+
+>> /dev/null 2>&1 &
+================
+==portal.log
+==we need to get logs 
+==all the script files we need put a logfile
+==mention full portal log /app/dep/po/log
+==better practice to give whole path
+
+
+ 
+
+Hikari is a JDBC DataSource implementation that provides a connection pooling mechanism. Compared to other implementations, it promises to be lightweight and better performing
+
+ ERROR – the log level that should be used when the application hits an issue preventing one or more functionalities from properly functioning.
+ 
+ 
+
+
